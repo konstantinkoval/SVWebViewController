@@ -16,5 +16,6 @@
 - (id)initWithURL:(NSURL *)URL;
 
 @property (nonatomic, strong) UIColor *barsTintColor;
+@property (nonatomic, strong, readonly) SVWebViewController *webViewController; // properties of webViewController can be customized.
 
 @end

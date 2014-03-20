@@ -54,6 +54,7 @@
     
     if(self = [super init]) {
         self.URL = pageURL;
+        _disableActionsButtonWhenLoad = YES;
     }
     
     return self;
@@ -174,9 +175,12 @@
 - (void)updateToolbarItems {
     self.backBarButtonItem.enabled = self.self.webView.canGoBack;
     self.forwardBarButtonItem.enabled = self.self.webView.canGoForward;
-    self.actionBarButtonItem.enabled = !self.self.webView.isLoading;
+    self.actionBarButtonItem.enabled = !self.disableActionsButtonWhenLoad || !self.self.webView.isLoading;
     
-    UIBarButtonItem *refreshStopBarButtonItem = self.self.webView.isLoading ? self.stopBarButtonItem : self.refreshBarButtonItem;
+    UIBarButtonItem *refreshStopBarButtonItem = self.refreshBarButtonItem;
+    if(!self.alwaysShowReloadButton) {
+        refreshStopBarButtonItem = self.self.webView.isLoading ? self.stopBarButtonItem : self.refreshBarButtonItem;
+    }
     
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
