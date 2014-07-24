@@ -29,4 +29,10 @@
  * Default NO
  */
 @property (nonatomic, assign) BOOL alwaysShowReloadButton;
+
+/**
+ * Interface method for ModalWebView.
+ */
+- (void)doneButtonClicked:(id)sender;
+
 @end
