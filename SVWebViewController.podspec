@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         	= 'SVWebViewController'
-  s.version      	= '1.0'
+  s.version      	= '1.0.1'
   s.summary     	= 'A simple inline browser for your iOS app.'
   s.homepage 	   	= 'http://samvermette.com/173'
   s.license      	= 'MIT'
